@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="searchLocation"
+            type="com.halil.weatherapp.entity.SearchLocation" />
+        <variable
+            name="clickListener"
+            type="com.halil.weatherapp.listener.SearchLocationOnClickListener" />
+    </data>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#74FFFFFF"
+    android:gravity="center"
+    android:onClick="@{(view)->clickListener.onClick(view,searchLocation)}"
+
+    >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:text="@{searchLocation.name+'/'+searchLocation.region+'/'+searchLocation.country}"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Ekle"
+        android:onClick="@{(view)->clickListener.add(view,searchLocation)}"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        />
+
+</LinearLayout>
+</layout>

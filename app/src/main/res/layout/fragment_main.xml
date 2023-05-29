@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+        <variable
+            name="currentWeather"
+            type="com.halil.weatherapp.entity.Current" />
+        <variable
+            name="currentWeatherLocation"
+            type="com.halil.weatherapp.entity.Location" />
+        <variable
+            name="currentDay"
+            type="com.halil.weatherapp.entity.Day" />
+        <variable
+            name="recyclerViewAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+        <variable
+            name="slideBarForecastRecyclerAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+        <variable
+            name="slideBarWeatherDetailsAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+        <variable
+            name="otherLocationRecyclerAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+        <variable
+            name="searchLocationRecyclerAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+
+        <variable
+            name="weatherDetail"
+            type="com.halil.weatherapp.entity.WeatherDetail" />
+
+    </data>
+
+
+
+    <androidx.slidingpanelayout.widget.SlidingPaneLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sliding_pane_layout"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:background="#00000000"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <DigitalClock
+            style="@style/TextAppearance.Compat.Notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="-72dp"
+
+            tools:layout_editor_absoluteY="5dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/app_name" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:text="@{  currentWeatherLocation.name.contains(currentWeatherLocation.region)?currentWeatherLocation.country+'/'+currentWeatherLocation.region:currentWeatherLocation.region+'/'+currentWeatherLocation.name}"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/slidingUpPanelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:umanoPanelHeight="220dp"
+        app:umanoShadowHeight="0dp">
+        <!-- First Screen -->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/mainFragmentSwipeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(currentWeather.tempC)+'°'}"
+                    android:textSize="88sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mainFragmentconditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:translateCondition='@{currentWeather.condition.text}'
+                    android:textSize="34sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/mainFragmenthighAndLow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:changeVisibility="@{currentDay!=null}"
+                    android:text='@{"H:"+currentDay.maxtempC+"° L:"+currentDay.mintempC+"°"}'
+                    android:textSize="34sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mainFragmentconditionText" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <!-- Second Screen -->
+
+        <include
+            layout="@layout/current_slide_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:forecastWeatherAdapter="@{slideBarForecastRecyclerAdapter}"
+            bind:hourlyWeatherAdapter="@{recyclerViewAdapter}"
+            bind:weatherDetail="@{weatherDetail}"
+            bind:weatherDetailsAdapter="@{slideBarWeatherDetailsAdapter}">
+
+        </include>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Right Panel-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adapter="@{otherLocationRecyclerAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:id="@+id/allLocationRecycler"
+                app:layout_constraintTop_toBottomOf="parent"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                >
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="Konum eklemek için arayın"
+
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:adapter="@{searchLocationRecyclerAdapter}"
+                    />
+
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.slidingpanelayout.widget.SlidingPaneLayout>
+
+</layout>

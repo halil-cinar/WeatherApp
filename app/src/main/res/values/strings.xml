@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name" translatable="false">WeatherApp</string>
+
+    <string name="EpaIndex1">Good</string>
+    <string name="EpaIndex2">Moderate</string>
+    <string name="EpaIndex3">Unhealthy for sensitive group</string>
+    <string name="EpaIndex4">Unhealthy</string>
+    <string name="EpaIndex5">Very Unhealthy</string>
+    <string name="EpaIndex6">Hazardous</string>
+
+    <string name="unknownLocation">unknown location</string>
+
+    <string name="airPollution">Air Pollution</string>
+    <string name="averageVisibility">Average visibility</string>
+    <string name="cloudCoverAsPercentage">Cloud cover as percentage</string>
+    <string name="precipitationAmount">Precipitation amount</string>
+    <string name="UVIndex">UV Index</string>
+    <string name="pressure">Pressure</string>
+    <string name="humadity">Humadity</string>
+    <string name="wind">Wind</string>
+
+
+    <string name="day">day</string>
+    <string name="sunny">Sunny</string>
+    <string name="partlyCloudy">Partly cloudy</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="overcast">Overcast</string>
+    <string name="mist">Mist</string>
+    <string name="patchyRainPossible">Patchy rain possible</string>
+    <string name="patchySnowPossible">Patchy snow possible</string>
+    <string name="patchySleetPossible">Patchy sleet possible</string>
+    <string name="patchyFreezingDrizzlePossible">Patchy freezing drizzle possible</string>
+    <string name="thunderyOutbreaksPossible">Thundery outbreaks possible</string>
+    <string name="blowingSnow">Blowing snow</string>
+    <string name="blizzard">Blizzard</string>
+    <string name="fog">Fog</string>
+    <string name="freezingFog">Freezing fog</string>
+    <string name="patchyLightDrizzle">Patchy light drizzle</string>
+    <string name="lightDrizzle">Light drizzle</string>
+    <string name="freezingDrizzle">Freezing drizzle</string>
+    <string name="heavyFreezingDrizzle">Heavy freezing drizzle</string>
+    <string name="patchyLightRain">Patchy light rain</string>
+    <string name="lightRain">Light rain</string>
+    <string name="moderateRainAtTimes">Moderate rain at times</string>
+    <string name="moderateRain">Moderate rain</string>
+    <string name="heavyRainAtTimes">Heavy rain at times</string>
+    <string name="heavyRain">Heavy rain</string>
+    <string name="lightFreezingRain">Light freezing rain</string>
+    <string name="moderateOrHeavyFreezingRain">Moderate or heavy freezing rain</string>
+    <string name="lightSleet">Light sleet</string>
+    <string name="moderateOrHeavySleet">Moderate or heavy sleet</string>
+    <string name="patchyLightSnow">Patchy light snow</string>
+    <string name="lightSnow">Light snow</string>
+    <string name="patchyModerateSnow">Patchy moderate snow</string>
+    <string name="moderateSnow">Moderate snow</string>
+    <string name="patchyHeavySnow">Patchy heavy snow</string>
+    <string name="heavySnow">Heavy snow</string>
+    <string name="icePellets">Ice pellets</string>
+    <string name="lightRainShower">Light rain shower</string>
+    <string name="moderateOrHeavyRainShower">Moderate or heavy rain shower</string>
+    <string name="torrentialRainShower">Torrential rain shower</string>
+    <string name="lightSleetShowers">Light sleet showers</string>
+    <string name="moderateOrHeavySleetShowers">Moderate or heavy sleet showers</string>
+    <string name="lightSnowShowers">Light snow showers</string>
+    <string name="moderateOrHeavySnowShowers">Moderate or heavy snow showers</string>
+    <string name="lightShowersOfIcePellets">Light showers of ice pellets</string>
+    <string name="moderateOrHeavyShowersOfIcePellets">Moderate or heavy showers of ice pellets</string>
+    <string name="patchyLightRainWithThunder">Patchy light rain with thunder</string>
+    <string name="moderateOrHeavyRainWithThunder">Moderate or heavy rain with thunder</string>
+    <string name="patchyLightSnowWithThunder">Patchy light snow with thunder</string>
+    <string name="moderateOrHeavySnowWithThunder">Moderate or heavy snow with thunder</string>
+    <string name="night">night</string>
+    <string name="clear">Clear</string>
+
+
+</resources>
