@@ -6,11 +6,11 @@
     <string name="EpaIndex5">Très malsain</string>
     <string name="EpaIndex6">Dangereux</string>
     <string name="unknownLocation">Lieu inconnu</string>
-    <string name="airPollution">La pollution de l'air</string>
+    <string name="airPollution">La pollution de lair</string>
     <string name="averageVisibility">Visibilité moyenne</string>
     <string name="cloudCoverAsPercentage">Couverture nuageuse en pourcentage</string>
     <string name="precipitationAmount">Quantité de précipitations</string>
-    <string name="UVIndex">L'indice uv</string>
+    <string name="UVIndex">Lindice uv</string>
     <string name="pressure">Pression</string>
     <string name="humadity">Humadité</string>
     <string name="wind">Vent</string>

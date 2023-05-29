@@ -6,7 +6,7 @@
     <string name="EpaIndex5">Molto malsano</string>
     <string name="EpaIndex6">Pericoloso</string>
     <string name="unknownLocation">Località sconosciuta</string>
-    <string name="airPollution">Inquinamento dell'aria</string>
+    <string name="airPollution">Inquinamento dellaria</string>
     <string name="averageVisibility">Visibilità media</string>
     <string name="cloudCoverAsPercentage">Copertura nuvolosa in percentuale</string>
     <string name="precipitationAmount">Quantità di precipitazioni</string>
