@@ -133,3 +133,4 @@ fun changeVisibility(view: View, visible: Boolean?) {
 fun setSelected(view: TextView, isSelected: Boolean) {
     view.isSelected = isSelected
 }
+

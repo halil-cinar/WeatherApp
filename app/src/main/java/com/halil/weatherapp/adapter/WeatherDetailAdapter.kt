@@ -1,12 +1,15 @@
 package com.halil.weatherapp.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.halil.weatherapp.R
 import com.halil.weatherapp.databinding.WeatherDetailRecyclerItemBinding
 import com.halil.weatherapp.entity.WeatherDetail
+import com.halil.weatherapp.listener.WeatherDetailOnClickListener
+import com.halil.weatherapp.listener.WeatherOnClickListener
 
 class WeatherDetailAdapter(var list:ArrayList<WeatherDetail>):RecyclerView.Adapter<WeatherDetailAdapter.ViewHolder>() {
 
@@ -14,6 +17,17 @@ class WeatherDetailAdapter(var list:ArrayList<WeatherDetail>):RecyclerView.Adapt
         fun changeDetail(weatherDetail: WeatherDetail){
             binding.weatherDetail=weatherDetail
         }
+var visibility=false
+        init {
+            binding.clickListener=object :WeatherDetailOnClickListener{
+                override fun onClick(view: View, weatherDetail: WeatherDetail) {
+                    visibility=!visibility
+                    binding.moreDetailVisibility=visibility
+                }
+
+            }
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
