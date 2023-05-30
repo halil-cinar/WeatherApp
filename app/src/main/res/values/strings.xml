@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">WeatherApp</string>
+    <string name="app_name" translatable="false">Weather Pro</string>
 
     <string name="EpaIndex1">Good</string>
     <string name="EpaIndex2">Moderate</string>
@@ -71,7 +71,7 @@
     <string name="moderateOrHeavySnowWithThunder">Moderate or heavy snow with thunder</string>
     <string name="night">night</string>
     <string name="clear">Clear</string>
-    <string name="see_more">See more</string>
+    <string name="see_more">See More</string>
 
 
 </resources>
