@@ -24,6 +24,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
+import kotlin.math.roundToInt
 
 class MainFragmentViewModel() : ViewModel() {
     var primaryWeatherLiveData = MutableLiveData<Weather>()
@@ -303,7 +304,19 @@ class MainFragmentViewModel() : ViewModel() {
                 context.getDrawable(R.drawable.baseline_air_24)!!,
                 context.getString(R.string.airPollution) + "(EPA)",
                 "${weather.current?.airQuality?.us_epa_index} ${EPAIndexList.get(weather.current?.airQuality?.us_epa_index)}",
-                (weather.current?.airQuality?.us_epa_index ?: 0).toDouble() * 100 / 6
+                (weather.current?.airQuality?.us_epa_index ?: 0).toDouble() * 100 / 6,
+                otherData = hashMapOf(
+                    "CO" to "${((weather.current?.airQuality?.co?:0.0)*100).roundToInt()/100.0}",
+                    "O3" to "${((weather.current?.airQuality?.o3?:0.0)*100).roundToInt()/100.0}",
+                    "NO2" to "${((weather.current?.airQuality?.no2?:0.0)*100).roundToInt()/100.0}",
+                    "SO2" to "${((weather.current?.airQuality?.so2?:0.0)*100).roundToInt()/100.0}",
+                    "PM2.5" to "${((weather.current?.airQuality?.pm25?:0.0)*100).roundToInt()/100.0}",
+                    "PM10" to "${((weather.current?.airQuality?.pm10?:0.0)*100).roundToInt()/100.0}",
+                    "EPA" to "${(weather.current?.airQuality?.us_epa_index?:0.0)}",
+                    "GB-DEFRA" to "${(weather.current?.airQuality?.gb_defra_index?:0.0)}",
+
+                    )
+
             )
         )
         //Wind Layout

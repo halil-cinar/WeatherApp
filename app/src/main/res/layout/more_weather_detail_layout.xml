@@ -122,7 +122,7 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:onClick="@{(view)->clickListener.onClick(view,weatherDetail)}"
-            app:changeVisibility="@{weatherDetail.otherData==null}"
+            app:changeVisibility="@{weatherDetail.otherData!=null}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
@@ -183,6 +183,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
+
+
+            android:background="#BE353535"
             app:changeVisibility="@{visibility}"
             android:onClick="@{(view)->clickListener.onClick(view,weatherDetail)}"
             >
@@ -321,7 +324,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:layout_height="wrap_content"
-                    android:text='@{weatherDetail.otherData.get("EPA")+"(μg/m3)"}'/>
+                    android:text='@{weatherDetail.otherData.get("EPA")}'/>
 
             </LinearLayout>
             <LinearLayout
@@ -340,7 +343,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:layout_height="wrap_content"
-                    android:text='@{weatherDetail.otherData.get("GB-DEFRA")+"(μg/m3)"}'/>
+                    android:text='@{weatherDetail.otherData.get("GB-DEFRA")}'/>
 
             </LinearLayout>
 
