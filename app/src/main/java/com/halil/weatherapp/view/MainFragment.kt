@@ -242,7 +242,7 @@ class MainFragment : Fragment() {
 
             paint.color=Color.RED
             @RequiresApi(Build.VERSION_CODES.Q)
-            paint.blendMode=BlendMode.DARKEN
+            paint.blendMode= BlendMode.DARKEN
 
             if(isCurrentlyActive&&actionState == ItemTouchHelper.ACTION_STATE_SWIPE&&dX<0){
                 val child = rv.getChildAt(viewHolder.adapterPosition)
